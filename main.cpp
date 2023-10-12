@@ -1,80 +1,118 @@
-//Матрици.
 #include <iostream>
-#include <array>
-//3. В квадратной матрице, найти сумму отрицательных элементов, лежащих на главной диагонали
-/*int main(){
-    const int nrows=10,ncols=10;
-    int sum=0;
-    std::array<std::array<int,nrows>,ncols>matrix;
-    srand(0);
-    for (int i=0;i<nrows;i++){
-        for (int j=0;j<ncols;j++){
-            matrix[i][j]=rand()%100-50;
-            if((i==j) && (matrix[i][j]<0)){
-                std::cout<<matrix[i][j]<<" ";
-                sum+=matrix[i][j];
-            }
-        }
-    }
-    std::cout<<sum;
-    return 0;
-}*/
-/*6. Дана матрица. Составить массив, каждый элемент которого равен максимальному
-элементу соответствующей строки матрица.*/
+
+
+//Составить алгоритм, находящий, сколько слов в тексте состоит из 6 символов.
 /*
-int main(){
-    const int nrows=10,ncols=10;
-    int max=-51;
-    std::array<std::array<int,nrows>,ncols>matrix;
-    std::array<int,nrows>massiv;
-    srand(0);
-    for (int i=0;i<nrows;i++){
-        for (int j=0;j<ncols;j++){
-            matrix[i][j]=rand()%100-50;
-            std::cout<<matrix[i][j]<<"\t";
-            if(max<matrix[i][j])
-                max=matrix[i][j];
-            if(j==ncols-1){
-                massiv[i]=max;
-                std::cout<<std::endl;
-                max=-51;
-            }
+int main()
+{
+    int p=0,k=0;
+    std::string a;
+    std::cout << "Введите строку из слов:" << std::endl;
+    std::getline(std::cin, a);
+    a = a + ' ';
+    p = 0;
+    for (int i = 0; i < a.length(); i++)
+    {
+        if (a[i] != ' ')
+            k+=1;
+        else {
+            if (k == 6)
+                p+=1;
+            k=0;
         }
     }
-    for (int i=0;i<nrows;i++){
-        std::cout<<massiv[i]<<" ";
-    }
+    std::cout << "Количество слов длины 6: " << p << std::endl;
+
+    return 0;
 }
 */
-/*7. Дана матрица. Элементы первой строки — количество осадков в соответствующий
-день, второй строки — сила ветра в этот день. Найти, был ли в эти дни ураган?
-(ураган — когда самый сильный ветер был в самый дождливый день).*/
-int main(){
-    const int nrows=2,ncols=10;
-    int max=-51,jmax1=0,jmax2=0;
-    std::array<std::array<int,nrows>,ncols>matrix;
-    srand(0);
-    for (int j=0;j<ncols;j++){
-        matrix[0][j]=rand()%100-50;
-        std::cout<<matrix[0][j]<<"\t";
-        if(max<matrix[0][j]){
-            max=matrix[0][j];
-            jmax1=j;
+//Составить алгоритм, находящий самое длинное слово.
+/*
+int main()
+{
+    int k=0,id=0,max=0;
+    std::string a;
+    std::cout << "Введите строку из слов:" << std::endl;
+    std::getline(std::cin, a);
+    a = a + ' ';
+    for (int i = 0; i < a.length(); i++)
+    {
+        if (a[i] != ' ')
+            k+=1;
+        if (a[i] == ' ' or i==a.length()){
+            if(k > max){
+                max=k;
+                id=i-k;
+            }
+            k=0;
         }
     }
-    max=-51;
-    std::cout<<std::endl;
-    for (int j=0;j<ncols;j++){
-        matrix[1][j]=rand()%100-50;
-        std::cout<<matrix[1][j]<<"\t";
-        if(max<matrix[1][j]){
-            max=matrix[1][j];
-            jmax2=j;
-        }
-    }
-    std::cout<<std::endl;
-    if(jmax1==jmax2)
-        std::cout<<"Yes"<<jmax1<<' '<<jmax2;
-    else
-        std::cout<<"No"<<jmax1<<' '<<jmax2;
+    for (int j=id;j < id+max;j++)
+        std::cout  << a[j];
+
 }
+*/
+//В данной строке найти количество цифр.
+/*
+int main()
+{
+    int k=0;
+    std::string a;
+    std::cout << "Введите строку из слов:" << std::endl;
+    std::getline(std::cin, a);
+    a = a + ' ';
+    for (int i=0;i<a.length(); i++){
+        if(a[i]>='0' and a[i]<='9')
+            k+=1;
+    }
+    std::cout<<k;
+}
+*/
+//Дан текст. Заменить все цифры соответствующими словами.
+/*
+int main()
+{
+    std::string result = "";
+    std::string str;
+    std::getline(std::cin, str);
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] >='0' and str[i]<='9') {
+            switch (str[i]) {
+                case '0':
+                    result += "zero";
+                    break;
+                case '1':
+                    result += "one";
+                    break;
+                case '2':
+                    result += "two";
+                    break;
+                case '3':
+                    result += "three";
+                    break;
+                case '4':
+                    result += "four";
+                    break;
+                case '5':
+                    result += "five";
+                    break;
+                case '6':
+                    result += "six";
+                    break;
+                case '7':
+                    result += "seven";
+                    break;
+                case '8':
+                    result += "eight";
+                    break;
+                case '9':
+                    result += "nine";
+                    break;
+            }
+        } else {
+            result += str[i];
+            }
+    }
+    std::cout<<result;
+}
+*/
